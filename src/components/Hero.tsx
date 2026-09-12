@@ -1,22 +1,14 @@
 import Link from "next/link";
+import { CinematicBackdrop } from "@/src/components/CinematicBackdrop";
 import { Container } from "@/src/components/Container";
-import { HeroVideo } from "@/src/components/HeroVideo";
 import { ScrollCue } from "@/src/components/ScrollCue";
 import { ShineText } from "@/src/components/ShineText";
 import { SITE } from "@/src/lib/site";
 
-const VIDEO_URL =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4";
-
 export function Hero() {
   return (
     <section className="relative flex h-screen min-h-[720px] w-full flex-col overflow-hidden bg-terminal">
-      <HeroVideo src={VIDEO_URL} />
-      {/* Keeps foreground text readable regardless of the video's own contrast. */}
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"
-        aria-hidden="true"
-      />
+      <CinematicBackdrop />
 
       <div className="relative z-10 flex h-full w-full flex-col">
         <Container className="pt-28 md:pt-32">

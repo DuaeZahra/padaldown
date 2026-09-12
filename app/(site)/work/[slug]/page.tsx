@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
+import { CinematicBackdrop } from "@/src/components/CinematicBackdrop";
 import { Container } from "@/src/components/Container";
 import { CountUpMetric } from "@/src/components/CountUpMetric";
 import { PROJECTS, getProjectBySlug } from "@/src/data/projects";
@@ -65,8 +66,14 @@ export default async function ProjectPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <section className="page-glow relative overflow-hidden border-b border-line pt-10 pb-12 sm:pt-14 sm:pb-16">
-        <Container className="relative flex flex-col gap-4">
+      {/* Same backdrop as the hero and the other page headers. Left-aligned
+          rather than centred, because this one leads with breadcrumbs. */}
+      <section className="page-glow relative flex min-h-[55vh] flex-col justify-center overflow-hidden bg-terminal pt-28 pb-16 sm:min-h-[60vh] sm:pt-32 sm:pb-20">
+        <CinematicBackdrop
+          overlayClassName="bg-gradient-to-b from-black/80 via-black/55 to-black/75"
+          fadeToPage
+        />
+        <Container className="relative z-10 flex flex-col gap-4">
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -82,13 +89,13 @@ export default async function ProjectPage({
               {project.domain}
             </span>
             {project.client ? (
-              <span className="text-sm text-ink-muted">{project.client}</span>
+              <span className="text-sm text-white/70">{project.client}</span>
             ) : null}
           </div>
-          <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
             {project.title}
           </h1>
-          <p className="max-w-2xl text-lg text-ink-muted">{project.tagline}</p>
+          <p className="max-w-2xl text-lg text-white/80">{project.tagline}</p>
 
           {project.liveUrl ? (
             <a
