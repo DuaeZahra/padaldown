@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CinematicBackdrop } from "@/src/components/CinematicBackdrop";
 import { Container } from "@/src/components/Container";
 import { Hero } from "@/src/components/Hero";
 import { ProofStrip } from "@/src/components/ProofStrip";
@@ -22,13 +23,22 @@ export default function Home() {
       <main id="main-content">
         <ProofStrip />
 
-        <section aria-labelledby="live-demo" className="border-b border-line bg-paper-raised py-16 sm:py-24">
-          <Container className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
+        {/* The signature demo gets hero treatment — it's the one thing on the
+            page a visitor is meant to touch. */}
+        <section
+          aria-labelledby="live-demo"
+          className="page-glow relative overflow-hidden bg-terminal py-20 sm:py-28"
+        >
+          <CinematicBackdrop
+            overlayClassName="bg-gradient-to-b from-black/80 via-black/65 to-black/80"
+            fade="both"
+          />
+          <Container className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
             <div className="max-w-md">
-              <h2 id="live-demo" className="font-display text-3xl font-semibold text-ink">
+              <h2 id="live-demo" className="font-display text-3xl font-semibold text-white sm:text-4xl">
                 See the wedge, not just hear about it.
               </h2>
-              <p className="mt-3 text-ink-muted">
+              <p className="mt-3 text-white/80">
                 Type a plain-language question. Keyword search fails on it. Semantic search —
                 the same idea as a pgvector query inside Postgres — doesn&rsquo;t.
               </p>
@@ -122,15 +132,20 @@ export default function Home() {
 
         <section
           aria-labelledby="contact-cta"
-          className="page-glow relative overflow-hidden border-t border-line bg-terminal py-16 sm:py-24"
+          className="page-glow relative overflow-hidden bg-terminal py-20 sm:py-28"
         >
-          <Container className="relative flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          {/* Bookends the page against the hero it opened with. */}
+          <CinematicBackdrop
+            overlayClassName="bg-gradient-to-b from-black/80 via-black/60 to-black/80"
+            fade="both"
+          />
+          <Container className="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 id="contact-cta" className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+              <h2 id="contact-cta" className="font-display text-3xl font-semibold text-white sm:text-4xl">
                 Let&rsquo;s talk about{" "}
                 <ShineText>your system.</ShineText>
               </h2>
-              <p className="mt-3 max-w-md text-ink-muted">
+              <p className="mt-3 max-w-md text-white/80">
                 Tell us what you&rsquo;re trying to build. We&rsquo;ll tell you honestly whether
                 a pilot makes sense.
               </p>
@@ -138,13 +153,13 @@ export default function Home() {
             <div className="flex flex-col gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-ink px-6 py-3 text-center font-mono text-sm text-paper transition-colors hover:bg-steel-dark"
+                className="rounded-full bg-white px-6 py-3 text-center font-mono text-sm text-terminal transition-colors hover:bg-steel-dark"
               >
                 Book a call
               </Link>
               <a
                 href={`mailto:${SITE.email}`}
-                className="text-center font-mono text-sm text-ink-muted hover:text-ink"
+                className="text-center font-mono text-sm text-white/75 transition-colors hover:text-white"
               >
                 {SITE.email}
               </a>

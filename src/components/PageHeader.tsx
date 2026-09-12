@@ -25,7 +25,7 @@ export function PageHeader({
     <section className="page-glow relative flex min-h-[60vh] flex-col justify-center overflow-hidden bg-terminal pt-28 pb-20 sm:min-h-[65vh] sm:pt-32 sm:pb-24">
       <CinematicBackdrop
         overlayClassName="bg-gradient-to-b from-black/80 via-black/55 to-black/75"
-        fadeToPage
+        fade="bottom"
       />
       <Container className="relative z-10 flex flex-col items-center gap-4 text-center">
         {above}

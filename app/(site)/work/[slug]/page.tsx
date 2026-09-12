@@ -71,7 +71,7 @@ export default async function ProjectPage({
       <section className="page-glow relative flex min-h-[55vh] flex-col justify-center overflow-hidden bg-terminal pt-28 pb-16 sm:min-h-[60vh] sm:pt-32 sm:pb-20">
         <CinematicBackdrop
           overlayClassName="bg-gradient-to-b from-black/80 via-black/55 to-black/75"
-          fadeToPage
+          fade="bottom"
         />
         <Container className="relative z-10 flex flex-col gap-4">
           <Breadcrumbs
