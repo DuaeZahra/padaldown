@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* Dark theme. Every value below is contrast-checked against the two
+   surfaces it can land on (--color-paper and --color-paper-raised):
+   body/muted text and all accents clear WCAG AA for normal text,
+   --color-line-strong clears 3:1 for interactive borders. */
+@theme inline {
+  --color-paper: #0f131b;
+  --color-paper-raised: #171d28;
+  --color-terminal: #06090e;
+  --color-ink: #f3f5f8;
+  --color-ink-muted: #aeb8c6;
+  --color-ink-soft: #8b96a6;
+  --color-line: #262e3b;
+  --color-line-strong: #637083;
+  --color-steel: #7fb3e8;
+  --color-steel-dark: #a8cdf2;
+  --color-steel-tint: #233040;
+  --color-amber: #e3a55f;
+  --color-amber-dark: #efbe86;
+  --color-amber-tint: #352d27;
+  --color-verified: #5ac98d;
+  --color-verified-tint: #1c3430;
+
+  /* Domain accents — one per project category, used on domain tags,
+     card top-borders, and filter pills so color carries information
+     instead of decorating at random. */
+  --color-fintech: #4fc38a;
+  --color-fintech-tint: #1b332f;
+  --color-genai: #e983aa;
+  --color-genai-tint: #362735;
+  --color-automation: #4fbdd1;
+  --color-automation-tint: #1b323c;
+
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+html {
+  color-scheme: dark;
+  /* The nav floats over content, so anchor jumps and focus-scrolling
+     need to stop clear of it. */
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-amber-tint);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-steel);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Shared accent gradient — nav ring, scroll progress, marquee edges. */
+.accent-gradient {
+  background-image: linear-gradient(90deg, #89aacc 0%, #4e85bf 100%);
+}
+
+/* Hero scroll cue: a highlight that travels down a hairline. */
+@keyframes scroll-cue {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}
+
+.animate-scroll-cue {
+  animation: scroll-cue 1.8s ease-in-out infinite;
+}
+
+/* Marquee band. Paused via [data-paused="true"] and by reduced motion. */
+@keyframes marquee-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-slide 38s linear infinite;
+}
+
+.animate-marquee[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll.is-visible {
+  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Animated gradient "shine" sweep for hero headline emphasis — a
+   lightened tint of the steel accent so the dark hero still reads as
+   the same brand, not a color pulled from nowhere. Pure CSS, no
+   animation library: the sweep is just a moving background-position
+   under bg-clip-text, so it costs nothing extra to ship. */
+/* Interior pages get the hero's cinematic feel from a cheap radial
+   glow rather than a second multi-megabyte video download. */
+.page-glow::before {
+  content: "";
+  position: absolute;
+  inset: -20% 0 auto 0;
+  height: 460px;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 60% at 20% 40%, rgba(127, 179, 232, 0.16), transparent 70%),
+    radial-gradient(50% 50% at 80% 20%, rgba(233, 131, 170, 0.1), transparent 70%);
+}
+
+@keyframes shine-sweep {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.shine-text {
+  background-image: linear-gradient(100deg, #8fc1ea 40%, #ffffff 50%, #8fc1ea 60%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine-sweep 3s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
