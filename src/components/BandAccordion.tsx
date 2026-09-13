@@ -28,8 +28,9 @@ export interface BandItem {
  */
 export function BandAccordion({
   items,
-  /** Which band starts open. Pass -1 to start fully collapsed. */
-  initialOpen = 0,
+  /** Index of the band that starts open; -1 (the default) starts fully
+   *  collapsed, so the group reads as a list of tones before anything else. */
+  initialOpen = -1,
   label,
 }: {
   items: BandItem[];

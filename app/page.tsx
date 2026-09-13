@@ -1,14 +1,10 @@
 import Link from "next/link";
-import { AuroraBackdrop } from "@/src/components/AuroraBackdrop";
 import { Container } from "@/src/components/Container";
 import { Hero } from "@/src/components/Hero";
-import { ProofStrip } from "@/src/components/ProofStrip";
-import { WedgeCards } from "@/src/components/WedgeCards";
+import { Capabilities } from "@/src/components/Capabilities";
 import { ProjectCard } from "@/src/components/ProjectCard";
 import { EngagementLadder } from "@/src/components/EngagementLadder";
 import { ParallaxNumbers } from "@/src/components/ParallaxNumbers";
-import { StackMarquee } from "@/src/components/StackMarquee";
-import { QueryConsole } from "@/src/components/QueryConsole";
 import { Reveal } from "@/src/components/Reveal";
 import { OtherWorkRow } from "@/src/components/OtherWorkRow";
 import { FEATURED_PROJECTS, OTHER_PROJECTS } from "@/src/data/projects";
@@ -20,44 +16,19 @@ export default function Home() {
       <Hero />
 
       <main id="main-content">
-        <ProofStrip />
-
-        {/* The signature demo gets hero treatment — it's the one thing on the
-            page a visitor is meant to touch. */}
-        <section
-          aria-labelledby="live-demo"
-          className="relative overflow-hidden bg-terminal py-20 sm:py-28"
-        >
-          <AuroraBackdrop fade="both" />
-          <Container className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
-            <div className="max-w-md">
-              <h2 id="live-demo" className="font-display text-4xl leading-tight text-cream sm:text-5xl">
-                See the wedge, not just <em className="italic">hear</em> about it.
-              </h2>
-              <p className="mt-4 text-cream/75">
-                Type a plain-language question. Keyword search fails on it. Semantic search —
-                the same idea as a pgvector query inside Postgres — doesn&rsquo;t.
-              </p>
-            </div>
-            <div className="flex-1">
-              <QueryConsole />
-            </div>
-          </Container>
-        </section>
-
         <section aria-labelledby="what-we-do" className="pt-20 pb-12 sm:pt-28 sm:pb-16">
           <Container className="max-w-2xl">
             <h2 id="what-we-do" className="font-display text-4xl leading-tight text-cream sm:text-5xl">
               What we <em className="italic">do</em>
             </h2>
             <p className="mt-4 text-cream/70">
-              Two things, done deeply, instead of everything done at once.
+              Three groups of work, and the projects that prove each one.
             </p>
           </Container>
         </section>
-        <WedgeCards />
+        <Capabilities />
 
-        <section aria-labelledby="selected-work" className="bg-paper-raised py-16 sm:py-24">
+        <section aria-labelledby="selected-work" className="bg-paper-raised/70 py-16 sm:py-24">
           <Container className="flex flex-col gap-10">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div className="max-w-2xl">
@@ -95,7 +66,7 @@ export default function Home() {
         </section>
         <EngagementLadder />
 
-        <section aria-labelledby="other-work" className="bg-paper-raised py-16 sm:py-24">
+        <section aria-labelledby="other-work" className="bg-paper-raised/70 py-16 sm:py-24">
           <Container className="flex flex-col gap-10">
             <div className="max-w-2xl">
               <h2 id="other-work" className="font-display text-4xl leading-tight text-cream sm:text-5xl">
@@ -113,21 +84,11 @@ export default function Home() {
 
         <ParallaxNumbers />
 
-        <section aria-labelledby="stack" className="py-16 sm:py-24">
-          <Container className="flex flex-col gap-8">
-            <h2 id="stack" className="font-display text-3xl leading-tight text-cream sm:text-4xl">
-              Stack
-            </h2>
-          </Container>
-          <StackMarquee />
-        </section>
-
         <section
           aria-labelledby="contact-cta"
-          className="relative overflow-hidden bg-terminal py-20 sm:py-28"
+          className="relative overflow-hidden py-20 sm:py-28"
         >
           {/* Bookends the page against the hero it opened with. */}
-          <AuroraBackdrop fade="both" />
           <Container className="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 id="contact-cta" className="font-display text-4xl leading-tight text-cream sm:text-5xl">

@@ -3,7 +3,8 @@ export type Domain =
   | "Fintech"
   | "Data & Search"
   | "Generative AI"
-  | "Automation";
+  | "Automation"
+  | "AI Research";
 
 export interface Project {
   slug: string;
@@ -231,6 +232,60 @@ export const PROJECTS: Project[] = [
     ],
     stack: ["H2O.ai AutoML", "Chart.js", "Python"],
   },
+  {
+    slug: "rl-training-environments",
+    title: "RL Environments for LLM Robustness",
+    domain: "AI Research",
+    tagline: "Training scenarios that target where large language models break.",
+    buyer: "Research lead at a frontier lab, or an ML platform team measuring model reliability",
+    problem:
+      "A model that answers ordinary questions well can still fail on the hard edges of systems work — a subtly wrong CUDA kernel, a precision trade-off that silently loses accuracy. Finding those failure modes needs environments built specifically to provoke them.",
+    approach:
+      "We designed high-difficulty reinforcement-learning environments aimed at known LLM failure modes in ML systems and optimization work, including CUDA kernel debugging and precision-optimization tasks across INT8, INT4, BF16, and FP16 on H100 hardware.",
+    architecture: [
+      "Failure-mode analysis against target task families",
+      "Scenario authoring with verifiable success criteria",
+      "CUDA/Triton kernel debugging tasks",
+      "Precision-optimization tasks across INT8, INT4, BF16, FP16",
+      "Evaluation on H100 hardware",
+    ],
+    metrics: [
+      { value: "4", label: "numeric precisions covered — INT8, INT4, BF16, FP16" },
+      // Non-numeric on purpose: CountUpMetric animates anything containing a
+      // digit, so "H100" would count up from H0 and read as a glitch.
+      { value: "Adopted", label: "scenarios used in Claude model training" },
+    ],
+    outcomes: [
+      "Scenarios were submitted to Anthropic and used in Claude model training",
+      "Covers CUDA kernel debugging and precision optimization across four numeric formats",
+    ],
+    stack: ["Python", "PyTorch", "CUDA", "Triton", "H100", "RLHF"],
+  },
+  {
+    slug: "conditional-gan-text-to-image",
+    title: "Text-to-Image Conditional GANs",
+    domain: "Generative AI",
+    tagline: "Custom conditional GAN architectures generating images from text prompts.",
+    buyer: "ML team evaluating generative approaches before committing to a hosted diffusion API",
+    problem:
+      "Generating an image that matches a text description means the model has to learn the relationship between the two, not just how to produce a plausible picture.",
+    approach:
+      "We implemented custom Conditional GAN architectures that condition image generation on a text prompt, and measured them by how often the output fooled a pretrained classifier rather than by eye.",
+    architecture: [
+      "Text embedding of the prompt",
+      "Conditional generator on the embedding",
+      "Discriminator trained on real/fake pairs",
+      "Evaluation against a pretrained classifier",
+    ],
+    metrics: [
+      { value: "80%+", label: "fooling rate against a pretrained classifier" },
+    ],
+    outcomes: [
+      "Over 80% fooling rate against a pretrained classifier on generated images",
+      "Trained and evaluated on Caltech-UCSD Birds and MS-COCO",
+    ],
+    stack: ["Python", "TensorFlow", "Keras", "NumPy", "OpenCV", "CUDA"],
+  },
 ];
 
 export const DOMAINS: Domain[] = [
@@ -239,6 +294,7 @@ export const DOMAINS: Domain[] = [
   "Data & Search",
   "Generative AI",
   "Automation",
+  "AI Research",
 ];
 
 export const FEATURED_PROJECTS = PROJECTS.filter((p) => p.featured);

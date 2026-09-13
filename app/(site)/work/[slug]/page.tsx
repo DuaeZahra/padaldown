@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
-import { AuroraBackdrop } from "@/src/components/AuroraBackdrop";
 import { Container } from "@/src/components/Container";
 import { CountUpMetric } from "@/src/components/CountUpMetric";
 import { PROJECTS, getProjectBySlug } from "@/src/data/projects";
@@ -68,8 +67,7 @@ export default async function ProjectPage({
 
       {/* Same backdrop as the hero and the other page headers. Left-aligned
           rather than centred, because this one leads with breadcrumbs. */}
-      <section className="relative flex min-h-[55vh] flex-col justify-center overflow-hidden bg-terminal pt-28 pb-16 sm:min-h-[60vh] sm:pt-32 sm:pb-20">
-        <AuroraBackdrop fade="bottom" />
+      <section className="relative flex min-h-[55vh] flex-col justify-center overflow-hidden pt-28 pb-16 sm:min-h-[60vh] sm:pt-32 sm:pb-20">
         <Container className="relative z-10 flex flex-col gap-4">
           <Breadcrumbs
             items={[

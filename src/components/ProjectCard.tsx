@@ -13,7 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className={`group relative isolate flex flex-col justify-between gap-6 overflow-hidden corner-sweep border border-line bg-paper-raised p-6 transition-all duration-500 ${EASE} hover:-translate-y-1.5 hover:border-line-strong hover:shadow-[0_24px_56px_-20px_rgba(0,0,0,0.95)]`}
+      className={`group relative isolate flex flex-col justify-between gap-6 overflow-hidden corner-sweep border border-line bg-paper-raised/85 p-6 transition-all duration-500 ${EASE} hover:-translate-y-1.5 hover:border-line-strong hover:shadow-[0_24px_56px_-20px_rgba(0,0,0,0.95)]`}
     >
       {/* Their signature: a panel that irises open from bottom-centre over the
           card's own content. Purely a hover flourish — everything it says is

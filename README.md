@@ -29,7 +29,7 @@ app/                     Routes (App Router). One folder per page.
   sitemap.ts, robots.ts    Generated SEO files
   opengraph-image.tsx      Default OG image (also one per case study)
 src/data/projects.ts      Every project. Single source of truth.
-src/components/           Shared UI (header, footer, cards, the query console, etc.)
+src/components/           Shared UI (nav, hero, bands, cards, etc.)
 src/lib/site.ts           Site-wide constants: name, email, phone, location, nav links
 ```
 
@@ -73,16 +73,6 @@ homepage.
 > Note: the original brief referenced 9 projects, but only 8 were specified
 > with real facts and numbers. Rather than invent a 9th, the site ships with
 > the 8 real ones. Add a 9th the same way once you have the details.
-
-## The signature element (query console)
-
-`src/components/QueryConsole.tsx` is the interactive keyword-vs-semantic
-search demo in the hero. It runs entirely client-side against a small fixed
-set of six example documents — no API calls, nothing to configure. The
-"semantic" side is a hand-authored cosine-similarity calculation over topic
-vectors (not a real embedding model), which is disclosed in the component's
-own caption text. To change the example queries or documents, edit `DOCS`,
-`KEYWORD_DICTIONARY`, and `EXAMPLES` at the top of that file.
 
 ## Contact form
 

@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { AuroraBackdrop } from "@/src/components/AuroraBackdrop";
 import { SITE } from "@/src/lib/site";
 
 export function Hero() {
   return (
-    <section className="relative flex h-screen min-h-[720px] w-full flex-col overflow-hidden bg-terminal">
-      <AuroraBackdrop />
+    <section className="relative flex h-screen min-h-[720px] w-full flex-col overflow-hidden">
 
       <div className="relative z-10 flex h-full w-full flex-col">
         <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">

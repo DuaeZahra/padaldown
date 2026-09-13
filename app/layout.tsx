@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Roboto, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { FloatingNav } from "@/src/components/FloatingNav";
+import { SiteBackdrop } from "@/src/components/SiteBackdrop";
 import { SITE } from "@/src/lib/site";
 
 // The display face carries the whole look, and its italic does most of the
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <SiteBackdrop />
         <FloatingNav />
         {children}
       </body>

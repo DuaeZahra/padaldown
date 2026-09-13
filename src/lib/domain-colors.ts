@@ -43,6 +43,13 @@ export const DOMAIN_STYLES: Record<Domain, DomainStyle> = {
     ring: "border-genai bg-genai-tint text-genai",
     panel: "bg-band-maroon",
   },
+  "AI Research": {
+    text: "text-research",
+    border: "border-t-research",
+    dot: "bg-research",
+    ring: "border-research bg-research-tint text-research",
+    panel: "bg-band-indigo",
+  },
   Automation: {
     text: "text-automation",
     border: "border-t-automation",
