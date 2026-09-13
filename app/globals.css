@@ -5,35 +5,54 @@
    body/muted text and all accents clear WCAG AA for normal text,
    --color-line-strong clears 3:1 for interactive borders. */
 @theme inline {
-  --color-paper: #0f131b;
-  --color-paper-raised: #171d28;
-  --color-terminal: #06090e;
-  --color-ink: #f3f5f8;
-  --color-ink-muted: #aeb8c6;
-  --color-ink-soft: #8b96a6;
-  --color-line: #262e3b;
-  --color-line-strong: #637083;
-  --color-steel: #7fb3e8;
-  --color-steel-dark: #a8cdf2;
-  --color-steel-tint: #233040;
-  --color-amber: #e3a55f;
-  --color-amber-dark: #efbe86;
-  --color-amber-tint: #352d27;
-  --color-verified: #5ac98d;
-  --color-verified-tint: #1c3430;
+  /* Creativeans-derived palette: neutral near-black rather than a blue-cast
+     dark, so the high-contrast serif reads crisp rather than tinted. Cream is
+     the one light surface. Contrast-checked against --color-paper and
+     --color-paper-raised: body/muted text and accents clear WCAG AA, and
+     --color-line-strong clears 3:1 for interactive borders. */
+  --color-paper: #1b1b1b;
+  --color-paper-raised: #101010;
+  --color-terminal: #000000;
+  --color-cream: #ebebe6;
+  --color-cream-muted: #5c5c55;
+  --color-ink: #ebebe6;
+  --color-ink-muted: #b4b4ad;
+  --color-ink-soft: #8e8e87;
+  --color-line: #2e2e2e;
+  --color-line-strong: #6a6a64;
+  --color-steel: #8bb4ea;
+  --color-steel-dark: #b3d0f3;
+  --color-steel-tint: #23303f;
+  --color-amber: #e0a668;
+  --color-amber-dark: #eec293;
+  --color-amber-tint: #332a21;
+  --color-verified: #63c996;
+  --color-verified-tint: #1d3329;
 
-  /* Domain accents — one per project category, used on domain tags,
-     card top-borders, and filter pills so color carries information
-     instead of decorating at random. */
-  --color-fintech: #4fc38a;
-  --color-fintech-tint: #1b332f;
-  --color-genai: #e983aa;
-  --color-genai-tint: #362735;
-  --color-automation: #4fbdd1;
-  --color-automation-tint: #1b323c;
+  /* Section bands, lifted straight from their services accordion. Each is a
+     saturated but desaturated-enough tone that cream text sits at AA on it. */
+  --color-band-rust: #9a443a;
+  --color-band-slate: #2e4756;
+  --color-band-plum: #594357;
+  --color-band-teal: #2b605e;
+  --color-band-ochre: #8a5a35;
+  --color-band-maroon: #7d3c4a;
+  --color-band-forest: #3f5745;
+  --color-band-steel: #3a5b77;
+  --color-band-indigo: #2e3156;
 
-  --font-display: var(--font-bricolage);
-  --font-sans: var(--font-plex-sans);
+  /* Domain accents — one per project category, used on domain tags, card
+     top-borders, and filter pills so color carries information instead of
+     decorating at random. Retuned to sit in the band palette's family. */
+  --color-fintech: #5fcb96;
+  --color-fintech-tint: #1d3430;
+  --color-genai: #e98bae;
+  --color-genai-tint: #362833;
+  --color-automation: #5cc4d6;
+  --color-automation-tint: #1c333b;
+
+  --font-display: var(--font-instrument-serif);
+  --font-sans: var(--font-roboto);
   --font-mono: var(--font-plex-mono);
 }
 
@@ -67,20 +86,6 @@ body {
   background-image: linear-gradient(90deg, #89aacc 0%, #4e85bf 100%);
 }
 
-/* Hero scroll cue: a highlight that travels down a hairline. */
-@keyframes scroll-cue {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(200%);
-  }
-}
-
-.animate-scroll-cue {
-  animation: scroll-cue 1.8s ease-in-out infinite;
-}
-
 /* Marquee band. Paused via [data-paused="true"] and by reduced motion. */
 @keyframes marquee-slide {
   from {
@@ -92,7 +97,7 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee-slide 38s linear infinite;
+  animation: marquee-slide 40s linear infinite;
 }
 
 .animate-marquee[data-paused="true"] {
@@ -102,7 +107,7 @@ body {
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -111,43 +116,67 @@ body {
 }
 
 .reveal-on-scroll.is-visible {
-  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: reveal-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-/* Animated gradient "shine" sweep for hero headline emphasis — a
-   lightened tint of the steel accent so the dark hero still reads as
-   the same brand, not a color pulled from nowhere. Pure CSS, no
-   animation library: the sweep is just a moving background-position
-   under bg-clip-text, so it costs nothing extra to ship. */
-/* Interior pages get the hero's cinematic feel from a cheap radial
-   glow rather than a second multi-megabyte video download. */
-.page-glow::before {
-  content: "";
+/* Aurora: the soft drifting color field behind dark sections. Creativeans
+   does this with a heavily darkened video; four blurred radial gradients
+   get the same read for no bytes and no decoder. */
+.aurora-layer {
   position: absolute;
-  inset: -20% 0 auto 0;
-  height: 460px;
+  inset: -30%;
   pointer-events: none;
+  filter: blur(110px) saturate(0.85) brightness(0.75);
+  opacity: 0.34;
   background:
-    radial-gradient(60% 60% at 20% 40%, rgba(127, 179, 232, 0.16), transparent 70%),
-    radial-gradient(50% 50% at 80% 20%, rgba(233, 131, 170, 0.1), transparent 70%);
+    radial-gradient(38% 42% at 22% 34%, #8739d5 0%, transparent 68%),
+    radial-gradient(34% 38% at 74% 24%, #3064d0 0%, transparent 70%),
+    radial-gradient(40% 36% at 54% 76%, #27fcf2 0%, transparent 72%),
+    radial-gradient(30% 34% at 88% 68%, #9a443a 0%, transparent 70%);
+  animation: aurora-drift 28s ease-in-out infinite alternate;
 }
 
-@keyframes shine-sweep {
+@keyframes aurora-drift {
   from {
-    background-position: 200% 0;
+    transform: translate3d(-3%, -2%, 0) scale(1);
   }
   to {
-    background-position: -200% 0;
+    transform: translate3d(3%, 2%, 0) scale(1.12);
   }
 }
 
-.shine-text {
-  background-image: linear-gradient(100deg, #8fc1ea 40%, #ffffff 50%, #8fc1ea 60%);
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shine-sweep 3s linear infinite;
+/* Their signature asymmetric card corner: three tight corners and one that
+   sweeps open. */
+.corner-sweep {
+  border-radius: 22px 22px 72px 0;
+}
+
+/* 1px gradient hairline around a pill — the floating nav's border. Theirs
+   isn't static: a conic gradient rotates through --angle, which has to be a
+   registered property or it would jump between keyframes instead of easing. */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.gradient-ring {
+  background-image: conic-gradient(
+    from var(--angle),
+    #8739d5,
+    #3064d0,
+    #27fcf2,
+    #3064d0,
+    #8739d5
+  );
+  padding: 1px;
+  animation: gradient-spin 6s linear infinite;
+}
+
+@keyframes gradient-spin {
+  to {
+    --angle: 360deg;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

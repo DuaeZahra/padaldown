@@ -5,6 +5,9 @@ interface DomainStyle {
   border: string;
   dot: string;
   ring: string;
+  /** Solid band tone behind the card's hover reveal. Cream text clears AA
+   *  on every one of these — see the band tokens in globals.css. */
+  panel: string;
 }
 
 // One accent per project domain. Reuses the two existing brand accents
@@ -17,29 +20,34 @@ export const DOMAIN_STYLES: Record<Domain, DomainStyle> = {
     border: "border-t-amber",
     dot: "bg-amber",
     ring: "border-amber bg-amber-tint text-amber-dark",
+    panel: "bg-band-ochre",
   },
   "Data & Search": {
     text: "text-steel-dark",
     border: "border-t-steel",
     dot: "bg-steel",
     ring: "border-steel bg-steel-tint text-steel-dark",
+    panel: "bg-band-slate",
   },
   Fintech: {
     text: "text-fintech",
     border: "border-t-fintech",
     dot: "bg-fintech",
     ring: "border-fintech bg-fintech-tint text-fintech",
+    panel: "bg-band-forest",
   },
   "Generative AI": {
     text: "text-genai",
     border: "border-t-genai",
     dot: "bg-genai",
     ring: "border-genai bg-genai-tint text-genai",
+    panel: "bg-band-maroon",
   },
   Automation: {
     text: "text-automation",
     border: "border-t-automation",
     dot: "bg-automation",
     ring: "border-automation bg-automation-tint text-automation",
+    panel: "bg-band-teal",
   },
 };

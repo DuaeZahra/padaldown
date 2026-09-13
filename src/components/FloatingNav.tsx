@@ -36,22 +36,23 @@ export function FloatingNav() {
   return (
     <div className="fixed inset-x-0 top-0 z-40 flex justify-center px-4 pt-4 md:pt-6">
       <div className="relative">
-        <div
-          className={`inline-flex items-center rounded-full border border-white/10 px-2 py-2 backdrop-blur-md transition-shadow duration-300 ${
-            scrolled ? "bg-paper-raised/95 shadow-lg shadow-black/40" : "bg-paper-raised/70"
-          }`}
-        >
+        <div className="gradient-ring inline-flex rounded-full">
+          <div
+            className={`inline-flex items-center rounded-full px-2 py-2 backdrop-blur-md transition-shadow duration-300 ${
+              scrolled ? "bg-terminal/95 shadow-lg shadow-black/50" : "bg-terminal/75"
+            }`}
+          >
           <Link
             href="/"
             aria-label="PedalDown home"
             className="group accent-gradient flex h-9 w-9 items-center justify-center rounded-full p-[2px] transition-transform duration-300 hover:scale-110"
           >
-            <span className="flex h-full w-full items-center justify-center rounded-full bg-paper font-display text-[13px] font-semibold text-ink">
+            <span className="flex h-full w-full items-center justify-center rounded-full bg-terminal font-display text-[13px] text-cream">
               PD
             </span>
           </Link>
 
-          <span className="mx-1 hidden h-5 w-px bg-line sm:block" aria-hidden="true" />
+          <span className="mx-1 hidden h-5 w-px bg-cream/15 sm:block" aria-hidden="true" />
 
           <nav aria-label="Primary" className="hidden items-center sm:flex">
             {NAV_LINKS.map((link) => {
@@ -61,10 +62,10 @@ export function FloatingNav() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`rounded-full px-3 py-1.5 font-mono text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm ${
+                  className={`rounded-full px-3 py-1.5 text-xs transition-colors sm:px-4 sm:py-2 sm:text-sm ${
                     active
-                      ? "bg-line/60 text-ink"
-                      : "text-ink-muted hover:bg-line/50 hover:text-ink"
+                      ? "bg-cream/12 text-cream"
+                      : "text-cream/70 hover:bg-cream/8 hover:text-cream"
                   }`}
                 >
                   {link.label}
@@ -73,7 +74,7 @@ export function FloatingNav() {
             })}
           </nav>
 
-          <span className="mx-1 hidden h-5 w-px bg-line sm:block" aria-hidden="true" />
+          <span className="mx-1 hidden h-5 w-px bg-cream/15 sm:block" aria-hidden="true" />
 
           <Link
             href="/contact"
@@ -83,7 +84,7 @@ export function FloatingNav() {
               aria-hidden="true"
               className="accent-gradient absolute -inset-[2px] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             />
-            <span className="relative rounded-full bg-paper-raised px-4 py-2 font-mono text-sm text-ink backdrop-blur-md">
+            <span className="relative rounded-full bg-cream px-4 py-2 text-sm text-terminal backdrop-blur-md">
               Book a call <span aria-hidden="true">↗</span>
             </span>
           </Link>
@@ -106,12 +107,13 @@ export function FloatingNav() {
               </svg>
             )}
           </button>
+          </div>
         </div>
 
         {open && (
           <div
             id="floating-nav-menu"
-            className="absolute left-1/2 top-full z-50 mt-2 flex w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 flex-col gap-1 rounded-2xl border border-white/10 bg-paper-raised/95 p-3 backdrop-blur-md sm:hidden"
+            className="absolute left-1/2 top-full z-50 mt-2 flex w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 flex-col gap-1 rounded-3xl border border-cream/12 bg-terminal/95 p-3 backdrop-blur-md sm:hidden"
           >
             {NAV_LINKS.map((link) => (
               <Link
@@ -119,10 +121,10 @@ export function FloatingNav() {
                 href={link.href}
                 aria-current={isActive(pathname, link.href) ? "page" : undefined}
                 onClick={() => setOpen(false)}
-                className={`rounded-lg px-3 py-2 font-mono text-sm transition-colors ${
+                className={`rounded-full px-4 py-2 text-sm transition-colors ${
                   isActive(pathname, link.href)
-                    ? "bg-line/60 text-ink"
-                    : "text-ink-muted hover:bg-line/50 hover:text-ink"
+                    ? "bg-cream/12 text-cream"
+                    : "text-cream/70 hover:bg-cream/8 hover:text-cream"
                 }`}
               >
                 {link.label}
@@ -131,7 +133,7 @@ export function FloatingNav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-1 rounded-lg bg-ink px-3 py-2 text-center font-mono text-sm text-paper"
+              className="mt-1 rounded-full bg-cream px-4 py-2 text-center text-sm text-terminal"
             >
               Book a call
             </Link>

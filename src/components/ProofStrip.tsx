@@ -1,4 +1,4 @@
-import { CinematicBackdrop } from "@/src/components/CinematicBackdrop";
+import { AuroraBackdrop } from "@/src/components/AuroraBackdrop";
 import { VerifiedDot } from "@/src/components/VerifiedDot";
 
 const PROOF_ITEMS = [
@@ -25,12 +25,9 @@ export function ProofStrip() {
     // Lands directly under the hero, so it carries the clip on rather than
     // capping it with a flat panel. The scrim opens near-black to meet the
     // bottom of the hero's own scrim, which hides the seam between the two.
-    <div className="page-glow relative overflow-hidden bg-terminal py-4">
-      <CinematicBackdrop
-        overlayClassName="bg-gradient-to-b from-black/85 via-black/70 to-black/80"
-        fade="bottom"
-      />
-      <ul className="relative z-10 mx-auto flex w-full max-w-6xl flex-col divide-y divide-white/10 px-6 sm:flex-row sm:flex-wrap sm:divide-y-0 sm:divide-x sm:divide-white/10 sm:px-8">
+    <div className="relative overflow-hidden bg-terminal py-4">
+      <AuroraBackdrop fade="bottom" />
+      <ul className="relative z-10 mx-auto flex w-full max-w-6xl flex-col divide-y divide-cream/12 px-6 sm:flex-row sm:flex-wrap sm:divide-y-0 sm:divide-x sm:divide-cream/12 sm:px-8">
         {PROOF_ITEMS.map((item) => (
           <li key={item.label} className="flex-1 py-4 sm:px-6">
             {item.href ? (
@@ -41,14 +38,14 @@ export function ProofStrip() {
                 className="group flex items-start gap-2"
               >
                 <VerifiedDot className="mt-1.5 shrink-0" />
-                <span className="font-mono text-sm text-white/75 transition-colors group-hover:text-white">
+                <span className="font-mono text-sm text-cream/70 transition-colors group-hover:text-cream">
                   {item.label} <span aria-hidden="true">↗</span>
                 </span>
               </a>
             ) : (
               <div className="flex items-start gap-2">
                 <VerifiedDot className="mt-1.5 shrink-0" />
-                <span className="font-mono text-sm text-white/75">{item.label}</span>
+                <span className="font-mono text-sm text-cream/70">{item.label}</span>
               </div>
             )}
           </li>

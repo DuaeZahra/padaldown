@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
-import { CinematicBackdrop } from "@/src/components/CinematicBackdrop";
+import { AuroraBackdrop } from "@/src/components/AuroraBackdrop";
 import { Container } from "@/src/components/Container";
 import { CountUpMetric } from "@/src/components/CountUpMetric";
 import { PROJECTS, getProjectBySlug } from "@/src/data/projects";
@@ -68,11 +68,8 @@ export default async function ProjectPage({
 
       {/* Same backdrop as the hero and the other page headers. Left-aligned
           rather than centred, because this one leads with breadcrumbs. */}
-      <section className="page-glow relative flex min-h-[55vh] flex-col justify-center overflow-hidden bg-terminal pt-28 pb-16 sm:min-h-[60vh] sm:pt-32 sm:pb-20">
-        <CinematicBackdrop
-          overlayClassName="bg-gradient-to-b from-black/80 via-black/55 to-black/75"
-          fade="bottom"
-        />
+      <section className="relative flex min-h-[55vh] flex-col justify-center overflow-hidden bg-terminal pt-28 pb-16 sm:min-h-[60vh] sm:pt-32 sm:pb-20">
+        <AuroraBackdrop fade="bottom" />
         <Container className="relative z-10 flex flex-col gap-4">
           <Breadcrumbs
             items={[
@@ -89,13 +86,13 @@ export default async function ProjectPage({
               {project.domain}
             </span>
             {project.client ? (
-              <span className="text-sm text-white/70">{project.client}</span>
+              <span className="text-sm text-cream/70">{project.client}</span>
             ) : null}
           </div>
-          <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-5xl leading-[1.03] tracking-tight text-cream sm:text-6xl lg:text-7xl">
             {project.title}
           </h1>
-          <p className="max-w-2xl text-lg text-white/80">{project.tagline}</p>
+          <p className="max-w-2xl text-lg text-cream/75">{project.tagline}</p>
 
           {project.liveUrl ? (
             <a
@@ -123,17 +120,17 @@ export default async function ProjectPage({
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr]">
           <div className="flex flex-col gap-10">
             <section>
-              <h2 className="font-display text-xl font-semibold text-ink">The problem</h2>
+              <h2 className="font-display text-2xl text-cream">The problem</h2>
               <p className="mt-3 leading-relaxed text-ink-muted">{project.problem}</p>
             </section>
 
             <section>
-              <h2 className="font-display text-xl font-semibold text-ink">What we built</h2>
+              <h2 className="font-display text-2xl text-cream">What we built</h2>
               <p className="mt-3 leading-relaxed text-ink-muted">{project.approach}</p>
             </section>
 
             <section>
-              <h2 className="font-display text-xl font-semibold text-ink">Architecture</h2>
+              <h2 className="font-display text-2xl text-cream">Architecture</h2>
               <ol className="mt-3 flex flex-col gap-2">
                 {project.architecture.map((step, i) => (
                   <li key={step} className="flex items-baseline gap-3 font-mono text-sm text-ink">
@@ -145,7 +142,7 @@ export default async function ProjectPage({
             </section>
 
             <section>
-              <h2 className="font-display text-xl font-semibold text-ink">Outcome</h2>
+              <h2 className="font-display text-2xl text-cream">Outcome</h2>
               <ul className="mt-3 flex flex-col gap-2">
                 {project.outcomes.map((outcome) => (
                   <li key={outcome} className="flex gap-2 leading-relaxed text-ink-muted">
@@ -185,7 +182,7 @@ export default async function ProjectPage({
         <div className="border-t border-line pt-10">
           <Link
             href="/contact"
-            className="inline-flex rounded-full bg-ink px-6 py-3 font-mono text-sm text-paper transition-colors hover:bg-steel-dark"
+            className="inline-flex rounded-full bg-cream px-7 py-3.5 text-sm text-terminal transition-colors hover:bg-white"
           >
             Talk to us about something like this
           </Link>

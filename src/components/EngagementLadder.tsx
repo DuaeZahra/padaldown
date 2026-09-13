@@ -1,63 +1,52 @@
-"use client";
+import { BandAccordion, type BandItem } from "@/src/components/BandAccordion";
 
-import { useReveal } from "@/src/lib/useReveal";
-
-const STEPS = [
+const STEPS: BandItem[] = [
   {
-    step: "01",
+    tone: "bg-band-plum",
     title: "Pilot",
-    duration: "2–3 weeks",
-    description:
-      "A scoped, paid pilot against your actual data or images. Small enough to say yes to without a procurement cycle.",
+    body: (
+      <p>
+        A scoped, paid pilot against your actual data or images. Small enough to say yes to
+        without a procurement cycle.
+      </p>
+    ),
+    aside: <Duration value="2–3 weeks" />,
   },
   {
-    step: "02",
+    tone: "bg-band-teal",
     title: "Build",
-    duration: "6–12 weeks",
-    description:
-      "We build the production system: the pipeline, the interface, the evaluation. You see working software the whole way through.",
+    body: (
+      <p>
+        We build the production system: the pipeline, the interface, the evaluation. You see
+        working software the whole way through.
+      </p>
+    ),
+    aside: <Duration value="6–12 weeks" />,
   },
   {
-    step: "03",
+    tone: "bg-band-ochre",
     title: "Run",
-    duration: "Ongoing",
-    description:
-      "An ongoing retainer to operate, monitor, and extend the system as your data and requirements change.",
+    body: (
+      <p>
+        An ongoing retainer to operate, monitor, and extend the system as your data and
+        requirements change.
+      </p>
+    ),
+    aside: <Duration value="Ongoing" />,
   },
 ];
 
-function Step({ s, i }: { s: (typeof STEPS)[number]; i: number }) {
-  const { ref, revealClassName } = useReveal<HTMLLIElement>();
-
+function Duration({ value }: { value: string }) {
   return (
-    <li
-      ref={ref}
-      style={{ animationDelay: `${i * 100}ms` }}
-      className={`flex flex-col gap-3 ${revealClassName}`}
-    >
-      <div className="flex items-center gap-3">
-        <span className="font-mono text-sm text-ink-soft">{s.step}</span>
-        <span
-          className="h-px flex-1 bg-line-strong"
-          style={{ opacity: 1 - i * 0.3 }}
-          aria-hidden="true"
-        />
-      </div>
-      <h3 className="font-display text-xl font-semibold text-ink">{s.title}</h3>
-      <span className="font-mono text-xs uppercase tracking-wide text-ink-soft">
-        {s.duration}
+    <div className="flex flex-col gap-1">
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-cream/60">
+        Typical duration
       </span>
-      <p className="text-sm leading-relaxed text-ink-muted">{s.description}</p>
-    </li>
+      <span className="font-display text-3xl italic text-cream sm:text-4xl">{value}</span>
+    </div>
   );
 }
 
 export function EngagementLadder() {
-  return (
-    <ol className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-      {STEPS.map((s, i) => (
-        <Step key={s.step} s={s} i={i} />
-      ))}
-    </ol>
-  );
+  return <BandAccordion items={STEPS} label="How we engage" />;
 }

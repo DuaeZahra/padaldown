@@ -117,7 +117,10 @@ No configuration needed beyond environment variables:
    Environment Variables.
 4. Deploy.
 
-## Quality checks run during development
+## Quality checks
+
+These were measured against the original design and have **not** been re-run
+since the site was restyled. Treat them as stale until you measure again:
 
 - **Lighthouse (mobile)**: 100 performance / 100 accessibility / 100 best
   practices / 100 SEO on `/`, `/work`, `/work/ai-dental-diagnosis`, `/about`,
@@ -126,3 +129,9 @@ No configuration needed beyond environment variables:
 - **Manual**: full keyboard tab-through with visible focus rings; verified
   `prefers-reduced-motion` disables all transitions; verified no horizontal
   overflow at 1440 / 768 / 390px.
+
+What changed since: the hero video (7.4MB) was replaced by a CSS aurora, which
+should help performance; the display face became a second webfont; and the
+colour palette, section structure, and hover motion were all reworked, none of
+it contrast-tested end to end. Re-run Lighthouse and axe before relying on any
+number above.

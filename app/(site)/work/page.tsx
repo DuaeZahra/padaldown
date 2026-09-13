@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/src/components/Container";
 import { PageHeader } from "@/src/components/PageHeader";
-import { ShineText } from "@/src/components/ShineText";
 import { WorkFilter } from "@/src/components/WorkFilter";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export default function WorkPage() {
     <>
       <PageHeader
         title="Work that"
-        shine={<ShineText>shipped.</ShineText>}
+        shine="shipped."
         intro={
           <p>
             Every system we&rsquo;ve shipped, with the numbers we measured. Filter by domain.

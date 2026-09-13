@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Instrument_Serif, Roboto, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { BackToTop } from "@/src/components/BackToTop";
 import { FloatingNav } from "@/src/components/FloatingNav";
-import { ScrollProgress } from "@/src/components/ScrollProgress";
 import { SITE } from "@/src/lib/site";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+// The display face carries the whole look, and its italic does most of the
+// work — headlines lean on it for emphasis mid-sentence.
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -68,7 +70,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${plexSans.variable} ${plexMono.variable} h-full`}
+      className={`${instrumentSerif.variable} ${roboto.variable} ${plexMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink antialiased">
         <script
@@ -81,10 +83,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-        <ScrollProgress />
         <FloatingNav />
         {children}
-        <BackToTop />
       </body>
     </html>
   );

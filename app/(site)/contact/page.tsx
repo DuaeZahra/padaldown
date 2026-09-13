@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/src/components/Container";
 import { PageHeader } from "@/src/components/PageHeader";
-import { ShineText } from "@/src/components/ShineText";
 import { ContactForm } from "./ContactForm";
 import { SITE } from "@/src/lib/site";
 
@@ -16,7 +15,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Tell us what you’re"
-        shine={<ShineText>building.</ShineText>}
+        shine="building."
         intro={
           <p>
             We&rsquo;ll tell you honestly whether a pilot makes sense — and what it would take.

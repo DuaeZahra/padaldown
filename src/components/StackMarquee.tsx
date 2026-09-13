@@ -16,6 +16,11 @@ const STACK = [
   "Solidity",
 ];
 
+// One track, not the two counter-scrolling rows creativeans uses for their
+// portfolio. This is a list of eleven technologies, not a showcase — a second
+// row doubled the motion without adding anything to read.
+const ROWS = [{ items: STACK, animation: "animate-marquee" }] as const;
+
 export function StackMarquee() {
   // WCAG 2.2.2: moving content that starts on its own needs a way to
   // stop it. Hover/focus pauses too, but this is the explicit control.
@@ -24,7 +29,7 @@ export function StackMarquee() {
   return (
     <div className="flex flex-col gap-4">
       <div
-        className="group relative overflow-hidden"
+        className="group relative flex flex-col gap-3 overflow-hidden"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -38,26 +43,30 @@ export function StackMarquee() {
           aria-hidden="true"
         />
 
-        <ul
-          className="animate-marquee flex w-max items-center gap-3"
-          data-paused={paused ? "true" : "false"}
-          aria-label="Technologies we work in"
-        >
-          {/* Duplicated once so the -50% slide loops seamlessly. The copy
-              is hidden from assistive tech to avoid reading it twice. */}
-          {[0, 1].map((copy) => (
-            <li key={copy} className="flex items-center gap-3" aria-hidden={copy === 1}>
-              {STACK.map((tech) => (
-                <span
-                  key={tech}
-                  className="whitespace-nowrap rounded-full border border-line px-4 py-2 font-mono text-xs text-ink-muted"
-                >
-                  {tech}
-                </span>
-              ))}
-            </li>
-          ))}
-        </ul>
+        {ROWS.map((row, rowIndex) => (
+          <ul
+            key={row.animation}
+            className={`${row.animation} flex w-max items-center gap-3`}
+            data-paused={paused ? "true" : "false"}
+            aria-label={rowIndex === 0 ? "Technologies we work in" : undefined}
+            aria-hidden={rowIndex === 1}
+          >
+            {/* Duplicated once so the 50% slide loops seamlessly. The copy
+                is hidden from assistive tech to avoid reading it twice. */}
+            {[0, 1].map((copy) => (
+              <li key={copy} className="flex items-center gap-3" aria-hidden={copy === 1}>
+                {row.items.map((tech) => (
+                  <span
+                    key={tech}
+                    className="whitespace-nowrap rounded-full border border-line px-4 py-2 font-mono text-xs text-ink-muted transition-colors duration-500 hover:border-line-strong hover:text-cream"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </li>
+            ))}
+          </ul>
+        ))}
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-8">

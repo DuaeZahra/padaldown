@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Container } from "@/src/components/Container";
 import { PageHeader } from "@/src/components/PageHeader";
 import { Reveal } from "@/src/components/Reveal";
-import { ShineText } from "@/src/components/ShineText";
 import { SITE } from "@/src/lib/site";
 
 export const metadata: Metadata = {
@@ -52,7 +51,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         title="Built by people who"
-        shine={<ShineText>ship.</ShineText>}
+        shine="ship."
       />
 
       <section className="py-14 sm:py-20">
