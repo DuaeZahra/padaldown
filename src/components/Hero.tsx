@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { SITE } from "@/src/lib/site";
 
 export function Hero() {
@@ -21,20 +20,6 @@ export function Hero() {
             <em className="block italic">Not prototypes.</em>
           </h1>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="rounded-full bg-cream px-7 py-3.5 text-sm text-terminal transition-colors hover:bg-white md:px-9 md:py-4 md:text-base"
-            >
-              Book a call
-            </Link>
-            <Link
-              href="/work"
-              className="rounded-full border border-cream/30 px-7 py-3.5 text-sm text-cream transition-colors hover:border-cream/70 md:px-9 md:py-4 md:text-base"
-            >
-              See the work
-            </Link>
-          </div>
         </div>
       </div>
 

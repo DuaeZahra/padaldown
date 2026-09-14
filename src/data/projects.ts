@@ -155,7 +155,7 @@ export const PROJECTS: Project[] = [
     tagline: "Multimodal content generation with trend analysis and auto-publishing.",
     buyer: "Head of marketing operations scaling content output",
     problem:
-      "Producing daily social content by hand — writing, generating images and video, scheduling, publishing — was consuming hours of a small team's day, every day.",
+      "Producing daily social content by hand (writing, generating images and video, scheduling, publishing) was consuming hours of a small team's day, every day.",
     approach:
       "We built a multimodal generation pipeline covering text-to-image and text-to-video, with trend analysis, scheduling, and auto-publishing, built for BridgeTower Blockchain.",
     architecture: [
@@ -239,7 +239,7 @@ export const PROJECTS: Project[] = [
     tagline: "Training scenarios that target where large language models break.",
     buyer: "Research lead at a frontier lab, or an ML platform team measuring model reliability",
     problem:
-      "A model that answers ordinary questions well can still fail on the hard edges of systems work — a subtly wrong CUDA kernel, a precision trade-off that silently loses accuracy. Finding those failure modes needs environments built specifically to provoke them.",
+      "A model that answers ordinary questions well can still fail on the hard edges of systems work: a subtly wrong CUDA kernel, a precision trade-off that silently loses accuracy. Finding those failure modes needs environments built specifically to provoke them.",
     approach:
       "We designed high-difficulty reinforcement-learning environments aimed at known LLM failure modes in ML systems and optimization work, including CUDA kernel debugging and precision-optimization tasks across INT8, INT4, BF16, and FP16 on H100 hardware.",
     architecture: [
@@ -250,7 +250,7 @@ export const PROJECTS: Project[] = [
       "Evaluation on H100 hardware",
     ],
     metrics: [
-      { value: "4", label: "numeric precisions covered — INT8, INT4, BF16, FP16" },
+      { value: "4", label: "numeric precisions covered: INT8, INT4, BF16, FP16" },
       // Non-numeric on purpose: CountUpMetric animates anything containing a
       // digit, so "H100" would count up from H0 and read as a glitch.
       { value: "Adopted", label: "scenarios used in Claude model training" },

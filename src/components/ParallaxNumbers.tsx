@@ -91,7 +91,7 @@ export function ParallaxNumbers() {
               Everything we claim, we <em className="italic">measured</em>.
             </h2>
             <p className="max-w-md text-cream/70">
-              These are the actual figures from shipped systems — error margins, accuracy on
+              These are the actual figures from shipped systems: error margins, accuracy on
               held-out sets, records processed. No rounded-up marketing numbers.
             </p>
             <Link

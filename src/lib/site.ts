@@ -7,7 +7,7 @@ export const SITE = {
   email: "duazahra796@gmail.com",
   phone: "+92 330 586 2044",
   phoneHref: "+923305862044",
-  location: "Pakistan — working with clients globally",
+  location: "Working with clients globally",
   role: "Sales Lead",
 } as const;
 

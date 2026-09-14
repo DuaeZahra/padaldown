@@ -59,7 +59,7 @@ export default function Home() {
               How we <em className="italic">engage</em>
             </h2>
             <p className="mt-4 text-cream/70">
-              Start small. A paid pilot, not a workshop. We do not publish prices here — book a
+              Start small. A paid pilot, not a workshop. We do not publish prices here. Book a
               call and we&rsquo;ll scope one.
             </p>
           </Container>
@@ -92,24 +92,31 @@ export default function Home() {
           <Container className="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 id="contact-cta" className="font-display text-4xl leading-tight text-cream sm:text-5xl">
-                Let&rsquo;s talk about{" "}
-                your system.
+                Let&rsquo;s talk about <em className="italic">your system</em>.
               </h2>
               <p className="mt-4 max-w-md text-cream/75">
                 Tell us what you&rsquo;re trying to build. We&rsquo;ll tell you honestly whether
                 a pilot makes sense.
               </p>
             </div>
-            <div className="flex flex-col gap-3">
-              <Link
-                href="/contact"
-                className="rounded-full bg-cream px-7 py-3.5 text-center text-sm text-terminal transition-colors hover:bg-white"
-              >
-                Book a call
-              </Link>
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="rounded-full bg-cream px-7 py-3.5 text-center text-sm text-terminal transition-colors hover:bg-white"
+                >
+                  Book a call
+                </Link>
+                <Link
+                  href="/work"
+                  className="rounded-full border border-cream/30 px-7 py-3.5 text-center text-sm text-cream transition-colors hover:border-cream/70"
+                >
+                  See the work
+                </Link>
+              </div>
               <a
                 href={`mailto:${SITE.email}`}
-                className="text-center font-mono text-sm text-cream/70 transition-colors hover:text-cream"
+                className="font-mono text-sm text-cream/70 transition-colors hover:text-cream sm:text-right"
               >
                 {SITE.email}
               </a>

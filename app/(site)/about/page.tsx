@@ -16,7 +16,7 @@ const PARAGRAPHS = [
   <>
     PedalDown Technologies is an AI engineering studio based in Pakistan, working with clients
     globally. Our engineers come from one of the country&rsquo;s top engineering universities. We
-    build and deploy production AI systems — not prototypes.
+    build and deploy production AI systems, not prototypes.
   </>,
   <>
     We contribute to pgEdge&rsquo;s open-source pgvector tooling. Our code is merged into the
@@ -29,8 +29,8 @@ const PARAGRAPHS = [
     >
       pgEdge/pgedge-vectorizer
     </a>{" "}
-    repository — the project other engineering teams already run in production, not a private fork
-    of it.
+    repository. That is the project other engineering teams already run in production, not a
+    private fork of it.
   </>,
   <>
     We also built reinforcement-learning training scenarios used in Anthropic&rsquo;s Claude model

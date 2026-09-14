@@ -26,7 +26,7 @@ const GROUPS: BandItem[] = [
       <>
         <p>
           Model work that gets measured, not demoed. Every system we ship reports its error
-          margins — a 2.26° mean error on a diagnostic model is published the same way a
+          margins. A 2.26° mean error on a diagnostic model is published the same way a
           precision bug on H100 is reported honestly.
         </p>
         <PillLink href="/work/rl-training-environments" className="mt-2">
@@ -37,7 +37,7 @@ const GROUPS: BandItem[] = [
     aside: (
       <CapabilityList
         items={[
-          "Deep learning — CNNs and GANs",
+          "Deep learning with CNNs and GANs",
           "NLP and LLM integration",
           "Computer vision",
           "Reinforcement learning",
@@ -54,8 +54,8 @@ const GROUPS: BandItem[] = [
       <>
         <p>
           A model is the easy half. We build the pipeline, the API, the interface and the
-          evaluation around it, so what you get is a running product your team can operate —
-          two of them are live in production today.
+          evaluation around it, so what you get is a running product your team can operate.
+          Two of them are live in production today.
         </p>
         <PillLink href="/work/fairstock" className="mt-2">
           See a live platform
@@ -94,7 +94,7 @@ const GROUPS: BandItem[] = [
       <CapabilityList
         items={[
           "CUDA / Triton kernels on H100",
-          "Precision optimization — INT8, INT4, BF16, FP16",
+          "Precision optimization across INT8, INT4, BF16, FP16",
           "Blockchain (Ethereum, Solidity, Web3.js)",
           "Medical imaging and diagnostics",
           "Generative AI (Stable Diffusion, CLIP, SAM)",

@@ -18,7 +18,7 @@ export default function ContactPage() {
         shine="building."
         intro={
           <p>
-            We&rsquo;ll tell you honestly whether a pilot makes sense — and what it would take.
+            We&rsquo;ll tell you honestly whether a pilot makes sense, and what it would take.
           </p>
         }
       />

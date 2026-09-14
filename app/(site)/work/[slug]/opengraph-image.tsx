@@ -32,7 +32,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 24, color: "#9AA5B1" }}>
           <div style={{ width: 12, height: 12, borderRadius: 999, background: "#2F8F5B" }} />
-          PedalDown Technologies — {domain}
+          PedalDown Technologies | {domain}
         </div>
 
         <div style={{ fontSize: 60, fontWeight: 700, lineHeight: 1.1, maxWidth: 950 }}>
