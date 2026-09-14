@@ -76,20 +76,27 @@ homepage.
 
 ## Contact form
 
-The form in `/contact` posts to a Formspree-compatible endpoint. Until you
-set one, it shows visitors a direct-email fallback instead of silently
-discarding submissions.
+The form in `/contact` posts to [FormSubmit](https://formsubmit.co) by default,
+using the address in `src/lib/site.ts`. No account is needed, but it must be
+activated once:
 
-To connect it:
+1. Submit the form yourself on the deployed site.
+2. FormSubmit emails that address a confirmation link. Click it.
+3. Submissions are delivered from then on. Nothing arrives before this step.
 
-1. Create a form at [formspree.io](https://formspree.io) (or any endpoint
-   that accepts a `multipart/form-data` POST and returns JSON).
-2. Copy `.env.local.example` to `.env.local`.
-3. Set `NEXT_PUBLIC_FORM_ENDPOINT` to your endpoint URL.
-4. On Vercel, add the same variable under Project Settings → Environment
-   Variables before deploying.
+FormSubmit also issues a hashed alias for the address after activation. Putting
+that in `NEXT_PUBLIC_FORM_ENDPOINT` keeps the raw address out of the page
+source:
 
-See the `TODO` comment at the top of `app/contact/ContactForm.tsx`.
+```
+NEXT_PUBLIC_FORM_ENDPOINT=https://formsubmit.co/ajax/<your-hash>
+```
+
+Any endpoint that accepts a `multipart/form-data` POST and answers JSON works
+here, so a Formspree form (`https://formspree.io/f/xxxxxxx`) can be dropped into
+the same variable instead.
+
+On Vercel, set the variable under Project Settings → Environment Variables.
 
 ## Site URL
 

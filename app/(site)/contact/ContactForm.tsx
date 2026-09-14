@@ -3,11 +3,15 @@
 import { FormEvent, useState } from "react";
 import { SITE } from "@/src/lib/site";
 
-// TODO: paste your Formspree (or Formspree-compatible) endpoint into
-// NEXT_PUBLIC_FORM_ENDPOINT in .env.local, e.g.
-//   NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xxxxxxx
-// See README.md for the full setup steps.
-const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+// Defaults to FormSubmit, which needs no account: it posts to an address and
+// emails it on. The first submission triggers a one-time confirmation mail to
+// SITE.email that has to be clicked before anything is delivered.
+//
+// Set NEXT_PUBLIC_FORM_ENDPOINT to override, e.g. with a Formspree endpoint
+// (https://formspree.io/f/xxxxxxx) or FormSubmit's hashed alias, which keeps
+// the address out of the page source. See README.md.
+const FORM_ENDPOINT =
+  process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? `https://formsubmit.co/ajax/${SITE.email}`;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -32,7 +36,11 @@ export function ContactForm() {
         body: data,
         headers: { Accept: "application/json" },
       });
-      if (response.ok) {
+      // FormSubmit answers 200 with {"success":"false"} for a rejected post, so
+      // response.ok alone would report a silent failure as a send.
+      const body = await response.json().catch(() => null);
+      const rejected = body && String(body.success) === "false";
+      if (response.ok && !rejected) {
         setStatus("success");
         form.reset();
       } else {
@@ -55,15 +63,17 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-      {!FORM_ENDPOINT && (
-        <p className="rounded-sm border border-amber/50 bg-amber-tint px-4 py-3 text-sm text-ink">
-          This form isn&rsquo;t connected to an inbox yet. Email{" "}
-          <a href={`mailto:${SITE.email}`} className="underline">
-            {SITE.email}
-          </a>{" "}
-          directly and we&rsquo;ll reply from there.
-        </p>
-      )}
+      <input type="hidden" name="_subject" value="New enquiry from pedaldown.tech" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input
+        type="text"
+        name="_honey"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <label className="flex flex-col gap-2">
@@ -116,7 +126,7 @@ export function ContactForm() {
         {status === "submitting" ? "Sending…" : "Send"}
       </button>
 
-      {status === "error" && FORM_ENDPOINT && (
+      {status === "error" && (
         <p role="alert" className="text-sm text-amber-dark">
           Something went wrong sending that. Please email{" "}
           <a href={`mailto:${SITE.email}`} className="underline">
