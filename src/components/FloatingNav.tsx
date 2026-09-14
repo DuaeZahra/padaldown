@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "@/src/lib/site";
+import { NAV_LINKS, SITE } from "@/src/lib/site";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -76,8 +76,10 @@ export function FloatingNav() {
 
           <span className="mx-1 hidden h-5 w-px bg-cream/15 sm:block" aria-hidden="true" />
 
-          <Link
-            href="/contact"
+          <a
+            href={SITE.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative ml-1 hidden rounded-full sm:inline-flex"
           >
             <span
@@ -87,7 +89,7 @@ export function FloatingNav() {
             <span className="relative rounded-full bg-cream px-4 py-2 text-sm text-terminal backdrop-blur-md">
               Book a call <span aria-hidden="true">↗</span>
             </span>
-          </Link>
+          </a>
 
           <button
             type="button"
@@ -130,13 +132,15 @@ export function FloatingNav() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
+            <a
+              href={SITE.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-1 rounded-full bg-cream px-4 py-2 text-center text-sm text-terminal"
             >
               Book a call
-            </Link>
+            </a>
           </div>
         )}
       </div>

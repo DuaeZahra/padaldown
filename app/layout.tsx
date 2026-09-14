@@ -59,7 +59,6 @@ const organizationJsonLd = {
   name: SITE.name,
   url: SITE.url,
   email: SITE.email,
-  telephone: SITE.phoneHref,
   description: SITE.description,
   address: {
     "@type": "PostalAddress",

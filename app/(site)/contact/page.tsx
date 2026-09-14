@@ -37,21 +37,6 @@ export default function ContactPage() {
                 </a>
               </dd>
             </div>
-            <div>
-              <dt className="font-mono text-xs uppercase tracking-wide text-ink-soft">Phone</dt>
-              <dd className="mt-1">
-                <a
-                  href={`tel:${SITE.phoneHref}`}
-                  className="font-mono text-steel hover:text-steel-dark"
-                >
-                  {SITE.phone}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="font-mono text-xs uppercase tracking-wide text-ink-soft">Location</dt>
-              <dd className="mt-1 text-ink-muted">{SITE.location}</dd>
-            </div>
           </dl>
 
           <ContactForm />

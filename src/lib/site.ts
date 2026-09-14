@@ -5,8 +5,9 @@ export const SITE = {
   description:
     "PedalDown Technologies is an AI engineering studio in Pakistan. We build semantic search inside Postgres and diagnostic imaging systems used in production, not prototypes.",
   email: "duazahra796@gmail.com",
-  phone: "+92 330 586 2044",
-  phoneHref: "+923305862044",
+  // Google Appointment Schedule. "Book a call" points here rather than at the
+  // contact form, so the visitor picks a slot instead of waiting on a reply.
+  bookingUrl: "https://calendar.app.google/ah1SGptByoVoLfeU8",
   location: "Working with clients globally",
   role: "Sales Lead",
 } as const;

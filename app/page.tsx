@@ -5,6 +5,7 @@ import { Capabilities } from "@/src/components/Capabilities";
 import { ProjectCard } from "@/src/components/ProjectCard";
 import { EngagementLadder } from "@/src/components/EngagementLadder";
 import { ParallaxNumbers } from "@/src/components/ParallaxNumbers";
+import { Testimonials } from "@/src/components/Testimonials";
 import { Reveal } from "@/src/components/Reveal";
 import { OtherWorkRow } from "@/src/components/OtherWorkRow";
 import { FEATURED_PROJECTS, OTHER_PROJECTS } from "@/src/data/projects";
@@ -84,6 +85,8 @@ export default function Home() {
 
         <ParallaxNumbers />
 
+        <Testimonials />
+
         <section
           aria-labelledby="contact-cta"
           className="relative overflow-hidden py-20 sm:py-28"
@@ -101,12 +104,14 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/contact"
+                <a
+                  href={SITE.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full bg-cream px-7 py-3.5 text-center text-sm text-terminal transition-colors hover:bg-white"
                 >
                   Book a call
-                </Link>
+                </a>
                 <Link
                   href="/work"
                   className="rounded-full border border-cream/30 px-7 py-3.5 text-center text-sm text-cream transition-colors hover:border-cream/70"
