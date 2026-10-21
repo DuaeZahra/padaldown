@@ -1,1 +1,1 @@
-export type whyusdata = { heading: string; paragraph: string }
+export type whyusdata = { heading: string; icon: string; paragraph: string }

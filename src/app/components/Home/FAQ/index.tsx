@@ -26,7 +26,7 @@ const faqs = [
   {
     question: 'Do you work with generative AI and LLMs?',
     answer:
-      'Yes. LLM integration via the OpenAI API, Stable Diffusion pipelines, conditional GANs, CLIP-based validation, IDM-VTON try-on and SAM segmentation, plus pgvector-backed semantic search and retrieval.',
+      'Extensively: LLM integration via the OpenAI API, Stable Diffusion pipelines, conditional GANs, CLIP-based validation, IDM-VTON try-on and SAM segmentation, plus pgvector-backed semantic search and retrieval.',
   },
   {
     question: 'How do we get started?',
@@ -41,11 +41,12 @@ const FAQ = () => {
       id='FAQ'
       className='relative py-1 bg-cover bg-center overflow-hidden scroll-mt-20 dark:bg-darkmode'>
       <div className='container mx-auto max-w-7xl px-4'>
-        <div className='relative rounded-3xl py-16 sm:py-20 bg-grey'>
-          <h2 className='text-center max-w-3xl mx-auto px-4'>
-            Questions
+        <div className='relative rounded-2xl py-24 bg-faq-bg bg-no-repeat bg-cover bg-primary'>
+          <p className='text-lg font-normal text-white text-center mb-6'>FAQ</p>
+          <h2 className='text-white text-center max-w-3xl mx-auto px-4'>
+            Frequently asked questions.
           </h2>
-          <div className='w-full px-4 pt-12'>
+          <div className='w-full px-4 pt-16'>
             {faqs.map((faq, i) => (
               <div
                 key={i}

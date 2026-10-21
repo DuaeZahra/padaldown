@@ -1,1 +1,1 @@
-export type workdata = { category: string; items: string[] }
+export type workdata = { category: string; icon: string; items: string[] }
