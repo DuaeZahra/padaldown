@@ -82,7 +82,7 @@ const Header: React.FC = () => {
             <Link
               href='/#Contact'
               className='hidden lg:block bg-darkmode text-white hover:bg-transparent hover:text-darkmode border border-darkmode px-5 py-2 rounded-lg whitespace-nowrap'>
-              Let’s talk
+              Contact
             </Link>
             <button
               onClick={() => setNavbarOpen(!navbarOpen)}
@@ -124,7 +124,7 @@ const Header: React.FC = () => {
               <Link
                 href='/#Contact'
                 className='bg-primary text-white text-center px-4 py-2 rounded-lg hover:bg-blue-700'>
-                Let’s talk
+                Contact
               </Link>
             </div>
           </nav>

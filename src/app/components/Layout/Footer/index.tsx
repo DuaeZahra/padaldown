@@ -33,8 +33,7 @@ const footer = () => {
               PedalDown Technologies
             </h4>
             <p className='text-white/60 text-lg max-w-sm mb-6'>
-              Advanced AI engineering &amp; intelligent systems. We build what
-              you imagine.
+              AI and software engineering.
             </p>
             <a
               href='mailto:pedaldowntechnologies@gmail.com'
@@ -43,7 +42,7 @@ const footer = () => {
             </a>
             <Link
               href='/#Contact'
-              className='inline-block text-lg font-semibold text-white bg-primary hover:bg-white hover:text-black py-3 px-8 rounded-full duration-300'>
+              className='inline-block text-lg font-semibold text-black bg-white hover:bg-white/80 py-3 px-8 rounded-full duration-300'>
               Start a project
             </Link>
           </div>
@@ -77,18 +76,6 @@ const footer = () => {
                 © {new Date().getFullYear()} PedalDown Technologies. All
                 rights reserved.
               </p>
-            </div>
-            <div className='flex justify-center md:justify-end'>
-              <Link href='/'>
-                <p className='text-base text-white pr-6 hover:text-white/60 hover:underline'>
-                  Privacy policy
-                </p>
-              </Link>
-              <Link href='/'>
-                <p className='text-base text-white pl-6 border-solid border-l border-footer hover:text-white/60 hover:underline'>
-                  Terms & conditions
-                </p>
-              </Link>
             </div>
           </div>
         </div>

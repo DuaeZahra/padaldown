@@ -5,25 +5,22 @@ import { aboutdata } from '@/app/types/aboutdata'
 import { workdata } from '@/app/types/workdata'
 import { projectdata } from '@/app/types/projectdata'
 import { whyusdata } from '@/app/types/whyusdata'
-import { resultdata } from '@/app/types/resultdata'
 import { footerlinks } from '@/app/types/footerlinks'
 
 // header nav-links data
 const headerData: HeaderItem[] = [
   { label: 'Services', href: '/#Services' },
   { label: 'Projects', href: '/#Projects' },
-  { label: 'Tech Stack', href: '/#Stack' },
-  { label: 'Why Us', href: '/#WhyUs' },
-  { label: 'FAQ', href: '/#FAQ' },
+  { label: 'About', href: '/#About' },
+  { label: 'Technology', href: '/#Stack' },
 ]
 
 // services (core competencies) data
 const Aboutdata: aboutdata[] = [
   {
     heading: 'Machine Learning & AI',
-    icon: 'tabler:brain',
     paragraph:
-      'Research-grade models built for real-world deployment, from medical imaging to autonomous agents.',
+      'Models for images, text and decision-making, trained on your data and measured against agreed metrics.',
     items: [
       'Deep Learning (CNNs, GANs)',
       'NLP & LLM Integration',
@@ -34,9 +31,8 @@ const Aboutdata: aboutdata[] = [
   },
   {
     heading: 'Full-Stack AI Products',
-    icon: 'tabler:stack-2',
     paragraph:
-      'Production-ready web apps with APIs, frontends and scalable backends, not just models.',
+      'Web applications built around those models, with the APIs, frontends and infrastructure to run them.',
     items: [
       'Flask / FastAPI Backends',
       'React Frontend Development',
@@ -47,9 +43,8 @@ const Aboutdata: aboutdata[] = [
   },
   {
     heading: 'Specialized Engineering',
-    icon: 'tabler:cpu',
     paragraph:
-      'Deep technical work where most teams stop: GPU kernels, blockchain and generative systems.',
+      'GPU kernel work, smart contracts, medical imaging and generative pipelines.',
     items: [
       'CUDA / Triton Kernels (H100)',
       'Blockchain (Ethereum, Solidity)',
@@ -64,42 +59,34 @@ const Aboutdata: aboutdata[] = [
 const WorkData: workdata[] = [
   {
     category: 'Languages',
-    icon: 'tabler:code',
     items: ['Python', 'C++', 'JavaScript (Node.js)', 'Solidity'],
   },
   {
     category: 'AI & ML',
-    icon: 'tabler:brain',
     items: ['TensorFlow', 'Keras', 'PyTorch', 'Scikit-learn', 'H2O.ai'],
   },
   {
     category: 'Generative AI',
-    icon: 'tabler:sparkles',
     items: ['Stable Diffusion', 'Conditional GANs', 'OpenAI API', 'CLIP', 'IDM-VTON', 'SAM'],
   },
   {
     category: 'Vector Databases',
-    icon: 'tabler:vector-triangle',
     items: ['PostgreSQL + pgvector', 'pgedge-vectorizer'],
   },
   {
     category: 'Backend & APIs',
-    icon: 'tabler:server-2',
     items: ['Flask', 'FastAPI', 'Node.js', 'Kafka', 'Redis', 'PostgreSQL', 'MySQL', 'MongoDB'],
   },
   {
     category: 'Frontend',
-    icon: 'tabler:layout-dashboard',
     items: ['React', 'HTML / CSS / JS', 'Chart.js', 'Tableau'],
   },
   {
     category: 'Blockchain',
-    icon: 'tabler:currency-ethereum',
     items: ['Ethereum', 'Solidity', 'Hardhat', 'Web3.js', 'MetaMask'],
   },
   {
     category: 'GPU & Hardware',
-    icon: 'tabler:cpu-2',
     items: ['CUDA', 'Triton Kernels', 'H100 GPUs', 'INT8 / BF16 Precision'],
   },
 ]
@@ -202,51 +189,35 @@ const ProjectsData: projectdata[] = [
 // why-choose-us data
 const WhyUsData: whyusdata[] = [
   {
-    heading: 'Full-Stack Delivery',
-    icon: 'tabler:rocket',
+    heading: 'We ship the full product',
     paragraph:
-      'We deploy production-ready web apps with APIs, frontends and scalable backends, not just models.',
+      'We build and deploy the whole application: backend, API, frontend and infrastructure.',
   },
   {
-    heading: 'Cross-Domain Expertise',
-    icon: 'tabler:world',
+    heading: 'Work across industries',
     paragraph:
-      'From healthcare AI and fintech to blockchain, social media automation and open-source databases.',
+      'Healthcare, fintech, education, e-commerce, social media automation and open-source databases.',
   },
   {
-    heading: 'Open Source Credibility',
-    icon: 'tabler:brand-github',
+    heading: 'Open-source contributors',
     paragraph:
-      "Active contributors to pgEdge's pgvector ecosystem. We give back to the engineering community.",
+      "We contribute to pgEdge's pgvector tooling, and our work there has been merged upstream.",
   },
   {
-    heading: 'Research-Grade Quality',
-    icon: 'tabler:microscope',
+    heading: 'Research experience',
     paragraph:
-      'Our RL environments were used directly in Claude model training at Anthropic.',
+      'RL environments we designed were used in Claude model training at Anthropic.',
   },
   {
-    heading: 'Hardware Optimization',
-    icon: 'tabler:cpu',
+    heading: 'GPU optimization',
     paragraph:
-      'Kernel-level GPU optimization with CUDA and Triton on H100s for maximum throughput and memory efficiency.',
+      'We optimize at the GPU kernel level with CUDA and Triton on H100s to improve throughput and memory use.',
   },
   {
-    heading: 'Measurable Results',
-    icon: 'tabler:chart-line',
+    heading: 'Measured results',
     paragraph:
-      'Every project ships with quantifiable outcomes: accuracy scores, latency benchmarks and real user impact.',
+      'We report results in numbers: accuracy, error rates, latency and time saved.',
   },
-]
-
-// headline results data
-const ResultsData: resultdata[] = [
-  { value: '92%', label: 'CT-scan classification accuracy', project: 'Lung 3D CNN' },
-  { value: '0.89', label: 'R² on dental angle prediction', project: 'DentalAI' },
-  { value: '~25 min', label: 'saved per diagnostic case', project: 'DentalAI' },
-  { value: '80%+', label: 'GAN fooling rate vs. classifier', project: 'Conditional GANs' },
-  { value: '20,000+', label: 'air-quality records processed', project: 'AQI Dashboard' },
-  { value: '2', label: 'live products in production', project: 'FairStock · Remembrly' },
 ]
 
 // footer links data
@@ -256,7 +227,7 @@ const FooterLinksData: footerlinks[] = [
     links: [
       { label: 'Services', href: '/#Services' },
       { label: 'Projects', href: '/#Projects' },
-      { label: 'Why Us', href: '/#WhyUs' },
+      { label: 'About', href: '/#About' },
       { label: 'Contact', href: '/#Contact' },
     ],
   },
@@ -285,7 +256,6 @@ export const GET = () => {
     WorkData,
     ProjectsData,
     WhyUsData,
-    ResultsData,
     FooterLinksData,
   })
 }

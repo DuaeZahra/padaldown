@@ -16,16 +16,13 @@ const Contact = () => {
   }
 
   return (
-    <section id='Contact' className='overflow-hidden bg-joinus scroll-mt-20'>
+    <section id='Contact' className='overflow-hidden scroll-mt-20'>
       <div className='container mx-auto max-w-7xl px-4'>
         <div className='text-center'>
-          <p className='text-primary text-lg font-normal tracking-widest uppercase'>
-            Contact us
-          </p>
-          <h2 className='my-6'>Let’s build your next AI system.</h2>
-          <p className='text-black/50 text-lg font-normal max-w-3xl mx-auto'>
-            We are ready to partner with you on your next AI challenge. Tell us
-            about your project requirements and we’ll get back to you.
+          <h2 className='my-6'>Contact</h2>
+          <p className='text-black/60 text-lg font-normal max-w-2xl mx-auto'>
+            Tell us about your project and what you need, and we’ll reply by
+            email.
           </p>
         </div>
 
@@ -58,7 +55,7 @@ const Contact = () => {
           />
           <button
             type='submit'
-            className='sm:col-span-2 text-xl text-white font-semibold rounded-full bg-primary py-5 px-12 hover:bg-darkmode duration-300 hover:cursor-pointer'>
+            className='sm:col-span-2 text-xl text-white font-semibold rounded-full bg-darkmode py-5 px-12 hover:bg-primary duration-300 hover:cursor-pointer'>
             Send message
           </button>
         </form>

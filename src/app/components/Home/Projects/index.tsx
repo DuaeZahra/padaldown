@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Icon } from '@iconify/react'
 import { projectdata } from '@/app/types/projectdata'
 
 const Projects = () => {
@@ -28,18 +27,12 @@ const Projects = () => {
   return (
     <section id='Projects' className='relative scroll-mt-20'>
       <div className='container mx-auto max-w-7xl px-4'>
-        <div className='text-center'>
-          <p className='text-primary text-lg tracking-widest uppercase'>
-            flagship projects
-          </p>
-          <h2 className='max-w-4xl mx-auto'>Delivered solutions.</h2>
-          <p className='text-xl text-black/55 max-w-3xl mx-auto mt-6'>
-            Production systems and research work across healthcare, fintech,
-            education, e-commerce and AI research.
-          </p>
-        </div>
+        <h2 className='pb-4'>Projects</h2>
+        <p className='text-xl text-black/60 max-w-2xl'>
+          A selection of client and research work.
+        </p>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14'>
           {loading
             ? Array.from({ length: 6 }).map((_, i) => (
                 <div
@@ -50,47 +43,30 @@ const Projects = () => {
             : projects.map((item, i) => (
                 <div
                   key={i}
-                  className='flex flex-col shadow-manage-shadow border border-border p-8 rounded-3xl hover:border-primary duration-300'>
-                  <div className='flex items-center justify-between mb-5'>
-                    <span className='text-sm font-semibold text-primary bg-primary/10 py-1.5 px-3 rounded-full'>
-                      {item.domain}
-                    </span>
-                    <span className='text-sm font-bold text-black/30'>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                  </div>
+                  className='flex flex-col border border-black/10 p-8 rounded-3xl'>
+                  <p className='text-sm font-medium text-black/50 mb-3'>
+                    {item.domain}
+                  </p>
                   <h5 className='mb-5 leading-snug'>{item.title}</h5>
                   <ul className='space-y-3 mb-6 grow'>
                     {item.points.map((point, j) => (
                       <li
                         key={j}
-                        className='flex items-start gap-2 text-base text-black/70'>
-                        <Icon
-                          icon='tabler:point-filled'
-                          width='18'
-                          height='18'
-                          className='text-primary shrink-0 mt-1'
-                        />
+                        className='text-base text-black/70'>
                         {point}
                       </li>
                     ))}
                   </ul>
-                  <div className='flex flex-wrap gap-2 pt-5 border-t border-border'>
-                    {item.stack.map((tool, j) => (
-                      <span
-                        key={j}
-                        className='text-xs font-medium bg-grey text-black/70 py-1 px-2.5 rounded-full'>
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
+                  <p className='pt-5 border-t border-black/10 text-sm text-black/55'>
+                    {item.stack.join(' · ')}
+                  </p>
                   {item.link && (
                     <Link
                       href={item.link.href}
                       target='_blank'
                       className='mt-5 text-base font-semibold text-primary hover:underline flex items-center gap-1'>
                       Live at {item.link.label}
-                      <Icon icon='tabler:arrow-up-right' width='18' height='18' />
+                      <span aria-hidden='true'>↗</span>
                     </Link>
                   )}
                 </div>

@@ -49,7 +49,6 @@
   --blur-220: 220px;
   --blur-400: 400px;
 
-  --background-image-faq-bg: url('/images/faq/swirl.png');
 }
 
 /*
@@ -103,9 +102,3 @@ html {
   overflow-x: hidden;
 }
 
-.bg-joinus {
-  background-image: url('/images/joinus/horn.svg'),
-    url('/images/joinus/paint.svg');
-  background-repeat: no-repeat, no-repeat;
-  background-position: 90% 100%, 2% 18%;
-}
