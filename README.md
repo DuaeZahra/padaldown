@@ -4,10 +4,6 @@ The marketing site for **PedalDown Technologies**, an AI and software
 engineering firm. It presents the company's services, flagship projects,
 open-source and research work, technology stack, and a contact form.
 
-Built with Next.js, React and Tailwind CSS, starting from the free
-[Desgy landing page template](https://github.com/GetNextjsTemplates/desgy-nextjs-tailwind-landing-page-template-free).
-Deployed on Vercel.
-
 ## Tech stack
 
 | | |
@@ -129,8 +125,3 @@ GitHub to see whether a deploy succeeded.
 `next`, `react` and `react-dom` are pinned to exact patched versions. Vercel
 blocks deployments that use Next.js or React versions affected by known
 security vulnerabilities, so keep these packages up to date when upgrading.
-
-## Credits
-
-Based on the [Desgy template](https://github.com/GetNextjsTemplates/desgy-nextjs-tailwind-landing-page-template-free)
-by GetNextJsTemplates.
